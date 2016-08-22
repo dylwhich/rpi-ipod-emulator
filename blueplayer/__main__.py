@@ -1,5 +1,6 @@
 import sys
 import serial
+import threading
 from blueplayer import blueplayer
 
 
@@ -16,7 +17,15 @@ def main():
     with serial.Serial(port) as serial_port:
         try:
             player = blueplayer.BluePlayer(serial_port)
-            player.start()
+
+            player_thread = threading.Thread(target=player.start)
+            serial_thread = threading.Thread(target=player.run)
+
+            player_thread.start()
+            serial_thread.start()
+
+            player_thread.join()
+            serial_thread.join()
         except KeyboardInterrupt as ex:
             print("\nBluePlayer cancelled by user")
         except Exception as ex:
