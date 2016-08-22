@@ -159,7 +159,7 @@ class BluePlayer(IpodProtocolHandler):
             if self.status == protocol.STATUS_PLAYING:
                 self.elapsed_info = (value, time.monotonic())
             else:
-                self.status = (value, 0)
+                self.elapsed_info = (value, 0)
 
     def update_display(self):
         if self.player:
