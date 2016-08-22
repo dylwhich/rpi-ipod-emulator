@@ -30,7 +30,8 @@ class BluePlayer(IpodProtocolHandler):
     player = None
     connected = None
     state = None
-
+    _status =protocol.STATUS_STOP
+    elapsed_info = (0, 0)
     track = []
 
     def __init__(self, *args, **kwargs):
@@ -50,10 +51,6 @@ class BluePlayer(IpodProtocolHandler):
 
         self.find_player()
         self.update_display()
-
-        self._status = protocol.STATUS_STOP
-
-        self.elapsed_info = (0, 0)
 
     @property
     def status(self):
