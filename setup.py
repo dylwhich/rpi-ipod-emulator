@@ -31,4 +31,9 @@ and control a bluetooth device""",
         'Topic :: Multimedia :: Sound/Audio',
     ],
     install_requires=open('requirements.txt').readlines(),
+    entry_points={
+        'console_scripts': [
+            'blueplayer=blueplayer.__main__:main'
+        ]
+    }
 )
