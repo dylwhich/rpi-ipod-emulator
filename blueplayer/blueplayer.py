@@ -79,7 +79,7 @@ class BluePlayer(IpodProtocolHandler):
         elif value in (protocol.STATUS_PAUSED, protocol.STATUS_PLAYING, protocol.STATUS_STOP):
             self._status = value
         else:
-            raise ValueError("Invalid status: " + value)
+            raise ValueError("Invalid status: " + str(value))
 
     def start(self):
         """Start the BluePlayer by running the gobject Mainloop()"""
