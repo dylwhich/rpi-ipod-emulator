@@ -1,5 +1,6 @@
 from setuptools import setup, find_packages
 
+
 def read_license():
     with open("LICENSE") as f:
         return f.read()
