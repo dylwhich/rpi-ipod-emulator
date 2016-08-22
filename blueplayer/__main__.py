@@ -3,7 +3,8 @@ import serial
 from blueplayer import blueplayer
 
 
-def main(args):
+def main():
+    args = sys.argv[1:]
     # first argument should be a serial terminal to open
     if not len(args):
         port = "/dev/ttyAMA0"
@@ -26,4 +27,4 @@ def main(args):
                 player.stop()
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
