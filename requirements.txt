@@ -1,1 +1,2 @@
 ipodproto>=0.1
+pyserial>=2.7
