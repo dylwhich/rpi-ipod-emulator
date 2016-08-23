@@ -8,13 +8,13 @@ def main():
     args = sys.argv[1:]
     # first argument should be a serial terminal to open
     if not len(args):
-        port = "/dev/ttyAMA0"
+        port = "/dev/ttyS0"
     else:
         port = args[0]
 
     player = None
 
-    with serial.Serial(port) as serial_port:
+    with serial.Serial(port, 19200) as serial_port:
         try:
             player = blueplayer.BluePlayer(serial_port)
 
